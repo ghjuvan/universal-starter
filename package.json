@@ -54,6 +54,7 @@
     "http-server": "^0.10.0",
     "reflect-metadata": "^0.1.10",
     "ts-loader": "^2.3.7",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "webpack-node-externals": "^1.6.0"
   }
 }
