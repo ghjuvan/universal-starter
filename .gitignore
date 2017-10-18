@@ -8,7 +8,6 @@ morgan.log
 /node_modules/
 /typings/
 /tsd_typings/
-/dist/
 /dist-server/
 /compiled/
 
@@ -26,5 +25,6 @@ webpack.records.json
 *.metadata.json
 *.shim.ngstyle.ts
 /functions/node_modules/
-/functions/dist/
-.idea/
+dist/
+functions/firebase-debug.log
+firebase-debug.log

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'home',
@@ -7,10 +8,12 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomeComponent implements OnInit {
     public message: string;
+    id;
 
-    constructor() {}
+    constructor(private route: ActivatedRoute) {}
 
     ngOnInit() {
-        this.message = 'Hello';
+        this.id = this.route.snapshot.params['id'];
+        this.message = 'Hello ' + (this.id || '');
     }
 }
