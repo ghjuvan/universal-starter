@@ -2,6 +2,7 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
 
 
@@ -10,7 +11,7 @@ module.exports = {
         // This is our Express server for Dynamic universal
         server: './server.ts',
         // This is an example of Static prerendering (generative)
-        prerender: './prerender.ts'
+        //prerender: './prerender.ts'
     },
     target: 'node',
     resolve: {extensions: ['.ts', '.js']},
@@ -18,8 +19,9 @@ module.exports = {
     externals: [/(node_modules|main\..*\.js)/,],
     output: {
         // Puts the output at the root of the dist folder
-        path: path.join(__dirname, 'dist'),
-        filename: '[name].js'
+        path: path.join(__dirname, 'functions/dist'),
+        filename: '[name].js',
+        libraryTarget: "commonjs-module"
     },
     module: {
         rules: [

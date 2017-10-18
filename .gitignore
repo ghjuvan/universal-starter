@@ -25,5 +25,6 @@ webpack.records.json
 *.ngsummary.json
 *.metadata.json
 *.shim.ngstyle.ts
-functions/node_modules
-functions/dist
+/functions/node_modules/
+/functions/dist/
+.idea/

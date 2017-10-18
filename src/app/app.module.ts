@@ -4,7 +4,6 @@ import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
-import {LazyComponent, LazyModule} from "./lazy/lazy.module";
 
 @NgModule({
     declarations: [
@@ -12,11 +11,11 @@ import {LazyComponent, LazyModule} from "./lazy/lazy.module";
         HomeComponent,
     ],
     imports: [
-        LazyModule,
         BrowserModule.withServerTransition({appId: 'my-app'}),
         RouterModule.forRoot([
-            {path: '', component: HomeComponent},
-            {path: 'lazy', component: LazyComponent}
+            {path: '', component: HomeComponent, pathMatch: 'full'},
+            {path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
+            {path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
         ])
     ],
     providers: [],
