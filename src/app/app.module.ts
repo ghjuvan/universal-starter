@@ -4,6 +4,9 @@ import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
+import {AngularFireModule} from "angularfire2";
+import {environment} from "../environments/environment";
+import {AngularFireDatabaseModule} from "angularfire2/database";
 
 @NgModule({
     declarations: [
@@ -18,7 +21,9 @@ import {HomeComponent} from './home/home.component';
             {path: 'home/:id', component: HomeComponent},
             {path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
             {path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
-        ])
+        ]),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFireDatabaseModule
     ],
     providers: [],
     bootstrap: [AppComponent]
