@@ -7,6 +7,7 @@ import {HomeComponent} from './home/home.component';
 import {AngularFireModule} from "angularfire2";
 import {environment} from "../environments/environment";
 import {AngularFireDatabaseModule} from "angularfire2/database";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import {AngularFireDatabaseModule} from "angularfire2/database";
         HomeComponent,
     ],
     imports: [
+        HttpModule,
         BrowserModule.withServerTransition({appId: 'my-app'}),
         RouterModule.forRoot([
             {path: '', redirectTo:'home', pathMatch: 'full'},

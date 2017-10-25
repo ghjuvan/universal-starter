@@ -42,13 +42,16 @@ app.set('views', join(DIST_FOLDER, 'browser'));
   app.get('/api/**', (req, res) => { });
 */
 
+
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
     maxAge: '1y'
 }));
 
+
 // ALl regular routes use the Universal engine
 app.get('*', (req, res) => {
+    res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
     res.render('index', {req});
 });
 
