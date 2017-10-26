@@ -33,7 +33,6 @@ app2.use(function(req, res, next) {
     next();
 });
 
-
 app2.get('/', function (req, res) {
     getData(req, res);
 });
@@ -43,9 +42,10 @@ app2.get('/:url', function (req, res) {
 });
 
 exports.trigger = functions.https.onRequest(function (req, res) {
+    //res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
     return app(req, res);
 });
 
 exports.nestor = functions.https.onRequest(function (req, res) {
-    return app2(req, res)
+    return app2(req, res);
 });
