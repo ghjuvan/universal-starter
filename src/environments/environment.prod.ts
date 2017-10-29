@@ -7,5 +7,7 @@ export const environment = {
         projectId: "actuuniversal",
         storageBucket: "actuuniversal.appspot.com",
         messagingSenderId: "556513955151"
-    }
+    },
+    apiBase:"https://us-central1-actuuniversal.cloudfunctions.net/"
+    //apiBase: "http://localhost:5001/actuuniversal/us-central1/"
 };
