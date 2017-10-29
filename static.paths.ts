@@ -1,6 +1,5 @@
-module.exports = [
+export const ROUTES = [
   '/',
-  '/:id',
   '/lazy',
   '/lazy/nested'
 ];

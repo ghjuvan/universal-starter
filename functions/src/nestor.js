@@ -1,4 +1,5 @@
 const express = require('express');
+const admin = require('firebase-admin');
 
 const app = express();
 
@@ -7,6 +8,7 @@ function getData(req, res) {
     if (url) {
         url = url.split('/').map(encodeURIComponent).join('/');
     }
+    console.log('GET ' + url || '/');
 
     admin.database().ref(url || '/').once('value')
         .then(snap => {

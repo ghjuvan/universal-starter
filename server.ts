@@ -51,9 +51,10 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
 
 // ALl regular routes use the Universal engine
 app.get('*', (req, res) => {
-    res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
+    console.log('RENDERING');
     res.render('index', {req});
 });
+
 
 // Start up the Node server
 /*app.listen(PORT, () => {

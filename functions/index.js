@@ -5,6 +5,7 @@ const cors = require('cors')({origin: true});
 const admin = require('firebase-admin');
 const nestorApp = require('./src/nestor');
 const triggerApp = require('./dist/server.js').angularApp;
+const ssrApp = require('./src/angularServer');
 
 
 admin.initializeApp(functions.config().firebase);
@@ -13,9 +14,13 @@ exports.trigger = functions.https.onRequest(function (req, res) {
     return triggerApp(req, res);
 });
 
+exports.trigger2 = functions.https.onRequest(function (req, res) {
+    return ssrApp(req, res);
+});
+
 exports.nestor = functions.https.onRequest(function (req, res) {
     cors(req, res, () => {
-        res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
+        //res.set('Cache-Control', 'public, max-age=600, s-maxage=1200');
         return nestorApp(req, res);
     });
 });
